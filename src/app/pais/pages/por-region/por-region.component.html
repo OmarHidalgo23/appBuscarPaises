@@ -1,0 +1,21 @@
+<h3 *ngIf="regionActiva.length>0" class="animate__animated animate__fadeIn">
+    <small>REGIÓN ACTIVA:</small><b> {{regionActiva | uppercase}}</b></h3>
+<hr>
+<h5 class="mt-4 animate__animated animate__fadeIn">SELECCIONE UNA REGIÓN: </h5>
+<div class="row mt-2 animate__animated animate__fadeIn">
+    <div class="col">
+        <button (click)="activarRegion(region)" *ngFor="let region of regiones" class="btn btn-outline-success btn-lg mr-5" [class.text-warning]="region == regionActiva" [ngClass]="{
+            'btn-success' : regionActiva == region,
+            'btn-outline-success' : regionActiva != region
+                }">
+            {{region | uppercase}}
+        </button>
+    </div>
+</div>
+<hr>
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
